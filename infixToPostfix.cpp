@@ -1,6 +1,14 @@
 #include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+#include <fstream>
+#include <ostream>
+#include <map>
+#include <iterator>
+#include <sstream>
 #include <stack>
-
+#include <string.h>
 using namespace std;
 string spaceCanceller(string text){
     string res = "";
@@ -16,14 +24,18 @@ string spaceCanceller(string text){
     return res;
 }
 
-bool isBalancedParantheses(string infix) {   //metod bu ama syntax error durumunda nereye ekleyeceğimiz önemli!
-  stack<char> stack;
-   infix = spaceCanceller(infix);
-  if(infix.find("()")!= string::npos) {
-     return false;	  
-  }
-  for(int i=0; i < infix.length(); i++) {
-     	if(infix[i] == '(') {
+bool isCheckedParantheses(string infix) {
+	stack<char> stack;
+	infix = spaceCanceller(infix);
+	if(infix.find("()") != string::npos) {
+		return false;
+	}
+
+	if(infix == "()") {
+		return false;
+	}
+	for(int i = 0; i < infix.length(); i++) {
+		if(infix[i] == '(') {
 			stack.push(infix[i]);
 		} else if(infix[i] == ')') {
 			if(stack.empty()) {
@@ -31,8 +43,8 @@ bool isBalancedParantheses(string infix) {   //metod bu ama syntax error durumun
 			} else {
 				stack.pop();
 			}
-		}  
-  }
+		}
+	}
 	return stack.empty() ? true:false;
 }
 bool isOperator(char c){
@@ -134,13 +146,15 @@ string toPostfix(stack<char> s, string infix){
 }
 
 
-int main(){
+//int main(){
 
-string infix_first;
-string postfix_last ;
-getline(cin,infix_first);
-cout<<infix_first;
-stack<char> Stack;
-postfix_last = toPostfix(Stack,infix_first);
-cout<<isBalancedParantheses(infix_first);
-	}
+//string infix_first;
+//string postfix_last ;
+//getline(cin,infix_first);
+//cout<<infix_first;
+//stack<char> Stack;
+//postfix_last = toPostfix(Stack,infix_first);
+//cout<<postfix_last;
+
+//return 0;
+//	}
