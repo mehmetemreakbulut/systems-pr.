@@ -2,7 +2,7 @@
 #include <stack>
 
 using namespace std;
-bool isBalancedParantheses(string infix) {
+bool isBalancedParantheses(string infix) {   //metod bu ama syntax error durumunda nereye ekleyeceğimiz önemli!
   stack<char> stack;
   if(infix == "()") {
      return false;	  
