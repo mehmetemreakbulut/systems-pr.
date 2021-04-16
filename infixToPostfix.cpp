@@ -2,23 +2,7 @@
 #include <stack>
 
 using namespace std;
-bool isCheckedParanthesesAgain(string infix,bool isBalancedParantheses) { // bu metoda zaten balancelanmış input gelecek mesela 5 + (     ) ama parantezler arası
-     if(isCheckedParantheses) {                                           // alphanumeric karakter olmadığı için false dönecek. yani çift boolean kontrolü yapacaz parantez için
-     	for(int i=0; i < infix.length();i++) {
-     		if(infix[i] == '(') {
-            for(int k = i+1; k < infix.length();k++) {
-            	if((infix[k] >= 'a' && infix[k] <= 'z') || (infix[k] >= 'A' && infix[k] <= 'Z') || (infix[k] >= '0' && infix[k] <= '9')) {
-            		return true;
-            	}
-            }
 
-     		}
-     	}
-     	return false;
-     } else {
-     	return false;
-     }
-}
 bool isBalancedParantheses(string infix) {   //metod bu ama syntax error durumunda nereye ekleyeceğimiz önemli!
   stack<char> stack;
   if(infix == "()") {
