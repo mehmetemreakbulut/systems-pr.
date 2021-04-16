@@ -2,7 +2,24 @@
 #include <stack>
 
 using namespace std;
-
+bool isBalancedParantheses(string infix) {
+  stack<char> stack;
+  if(infix == "()") {
+     return false;	  
+  }
+  for(int i=0; i < infix.length(); i++) {
+     	if(infix[i] == '(') {
+			stack.push(infix[i]);
+		} else if(infix[i] == ')') {
+			if(stack.empty()) {
+				return false;
+			} else {
+				stack.pop();
+			}
+		}  
+  }
+	return stack.empty() ? true:false;
+}
 bool isOperator(char c){
 		if(c=='+' || c=='-' || c=='/' || c=='*'){
 			return true;
