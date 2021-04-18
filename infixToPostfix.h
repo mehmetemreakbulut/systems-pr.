@@ -11,7 +11,7 @@ class infixToPostfix {
   bool isCheckedParantheses(string infix);
   bool isOperator(char c);
   int precedence(char c);
-  string toPostfix(stack<char> s, string infix);
+  string toPostfix(string infix);
 
 };
 

@@ -1,3 +1,4 @@
+ #include "infixToPostfix.h"
 #include <iostream>
 #include <vector>
 #include <string>
@@ -64,7 +65,8 @@ int precedence(char c){
 	else
 		return -1;
 }
-string toPostfix(stack<char> s, string infix){
+string toPostfix(string infix){
+	stack<string> s;
 	string postfix;
 	for(int i =0; i<infix.length();i++){
 	
